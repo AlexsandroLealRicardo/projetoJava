@@ -275,7 +275,7 @@
                                   </a>
                                   <ul class="pcoded-submenu">
                                       <li class=" ">
-                                          <a href="<%=request.getContextPath() %>/pages/caduser.jsp" class="waves-effect waves-dark">
+                                          <a href="<%=request.getContextPath() %>/ServletUsuarioController?acao=listarUser" class="waves-effect waves-dark">
                                               <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                               <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Usuário</span>
                                               <span class="pcoded-mcaret"></span>
@@ -543,6 +543,28 @@
                                                 </div>
                                                 </div>
                                                 <span id="msg">${msg}</span>
+                                                
+                                                
+                                                <div style="height: 300px; overflow: scroll;">
+											<table class="table" id="tabelaresultadosview">
+												<thead>
+													<tr>
+														<th scope="col">ID</th>
+														<th scope="col">Nome</th>
+														<th scope="col">Ver</th>
+													</tr>
+												</thead>
+												<tbody>
+													<c:forEach items='${modelLogins}' var='ml'>
+													      <tr>
+													       <td><c:out value="${ml.id}"></c:out></td>
+													       <td><c:out value="${ml.nome}"></c:out></td>
+													       <td><a class="btn btn-success" href="<%= request.getContextPath() %>/ServletUsuarioController?acao=buscarEditar&id=${ml.id}" >Ver</a></td>
+													      </tr>
+													</c:forEach>
+												</tbody>
+											</table>
+										</div>
                                                 
                                     </div>
                                     <!-- Page-body end -->
